@@ -1,0 +1,325 @@
+a_list<-list(
+  c(1,2,3,4,5,6),
+  month.abb,
+  matrix(c(3,8,-1,-3),nrow=2),
+  asin
+)
+a_list
+
+names(a_list)<-c("catalan","months","involutary","arcsin")
+a_list
+
+main_list<- list(
+  middle_list=list(
+    element_in_middle_list=diag(3),
+    inner_list=list(
+      element_in_inner_list=pi^(1:4),
+      another_element_in_inner_list="a"
+    )
+  ),
+  another_middle_list=log10(1:10)
+  
+)
+main_list
+
+is.recursive(list())
+is.atomic(list())
+is.atomic(numeric())
+is.recursive(numeric())
+
+length(a_list)
+length(main_list)
+
+dim(a_list)
+dim(main_list)
+
+nrow(a_list)
+ncol(a_list)
+NCOL(a_list)
+NROW(a_list)
+
+l1<-list(1:5)
+l2<-list(6:10)
+class(l1[[1]])
+l1[[1]]+l2[[1]]
+l1[[2]]+l2[[2]]
+
+l<-list(first=1,second=2,third=list(alpha=3.1,beta=3.2))
+l[1:2]
+l[-3]
+l[c(TRUE,TRUE,FALSE)]
+l[[1]]
+l["first"]
+class(l["first"])
+l[["first"]]
+class(l[["first"]])
+is.list(l[1])
+is.list(l[[1]])
+l$first
+l$f
+
+l[["third"]]["beta"]
+l[["third"]][["beta"]]
+l[c("third","beta")]
+l[[c("third","beta")]]
+is.list(l[["third"]]["beta"])
+is.list(l[["third"]][["beta"]])
+
+l[c(4,2,5)]
+l[c("forth","fifth",'second')]
+l[["forth"]]
+l$forth
+
+ans<-c(1,4,6,21,107)
+as.list(ans)
+as.numeric(list(1,2,3,4,5,6))
+prime_factors<-list(
+  two=2,
+  three=3,
+  four=c(2,2),
+  five=5,
+  six=c(2,3),
+  seven=7,
+  eight=c(2,2,2),
+  nine=9,
+  ten=c(2,5)
+  
+)
+prime_factors
+
+new_factors<-unlist(prime_factors)
+new_factors
+new_factors[1]
+new_factors[[1]]
+is.list(prime_factors)
+is.list(new_factors)
+is.list(new_factors[1])
+is.list(new_factors[[1]])
+is.numeric(new_factors[[1]])
+is.numeric(new_factors[1])
+c(list(a=1,b=2),list(3))
+c(list(a=1,b=2),3)
+
+matrix_list_hybird<-cbind(list(a=1,b=2),list(c=3,d=4))
+matrix_list_hybird
+matrix_list_hybird<-cbind(list(a=1,b=2),list(c=3,list(d=4)))
+matrix_list_hybird
+str(matrix_list_hybird)
+
+china_holiday<-list(
+  Jan="New year's Day",
+  Feb="Spring Festival",
+  Mar=NULL,
+  Apr="Qingming Festival",
+  May="May Day",
+  Jun=NULL,
+  Jul=NULL,
+  Aug=NULL,
+  Sep="Moon Festival",
+  Oct="National Day",
+  Nov=NULL,
+  Dec=NULL
+)
+
+length(NULL)
+length(NA)
+is.null(NULL)
+is.null(NA)
+china_holiday$Sep<-NULL
+china_holiday
+china_holiday$Jun<-list(NULL)
+china_holiday
+
+arguments_of_sd<-formals(sd)
+arguments_of_sd
+class(arguments_of_sd)
+
+pairlist()
+list()
+
+a_data_frame<-data.frame(
+  x=letters[1:5],
+  y=rnorm(5),
+  z=runif(5)>0.5
+)
+a_data_frame
+class(a_data_frame)
+
+y<-rnorm(5)
+names(y)<-month.name[1:5]
+data.frame(
+  x=letters[1:5],
+  y=y,
+  z=runif(5)>0.5
+)
+z=runif(5)>0.5
+names(z)<-month.name[1:5]
+data.frame(
+  x=letters[1:5],
+  y=rnorm(5),
+  z=z
+)
+
+y<-rnorm(5)
+names(y)<-month.name[1:5]
+data.frame(
+  x=letters[1:5],
+  y=y,
+  z=runif(5)>0.5,
+  row.names = c("Jackie","Tito","Jermain","Marlon","Machael")
+)
+
+rownames(a_data_frame)
+colnames(a_data_frame)
+dimnames(a_data_frame)
+
+nrow(a_data_frame)
+ncol(a_data_frame)
+dim(a_data_frame)
+
+length(a_data_frame)
+names(a_data_frame)
+
+data.frame(
+  x=1,
+  y=2:3,
+  z=4:7
+)
+
+data.frame(
+  "A colunm"=letters[1:5],
+  "..."=rnorm(5),
+  "..."=runif(5)>0.5,
+  check.names = FALSE
+)
+
+a_data_frame[2:3,-3]
+a_data_frame[c(TRUE,FALSE,FALSE,TRUE,TRUE),c("x","y")]
+
+a_data_frame[2:3,1]
+class(a_data_frame[2:3,1])
+class(a_data_frame[2:3,-3])
+
+a_data_frame$x[2:3]
+a_data_frame[[1]][2:3]
+a_data_frame[[1]][[2]]
+a_data_frame[["x"]][2:3]
+
+a_data_frame<-data.frame(
+  x=letters[1:5],
+  y=rnorm(5),
+  z=runif(5)>0.5
+)
+a_data_frame
+a_data_frame[a_data_frame$y>0|a_data_frame$z,"x"]
+subset(a_data_frame,y>0|z,x)
+
+t(a_data_frame)
+class(t(a_data_frame))
+
+another_data_frame<-data.frame(
+  z=rlnorm(5),
+  y=sample(5),
+  x=letters[3:7]
+)
+rbind(a_data_frame,another_data_frame)
+cbind(a_data_frame,another_data_frame)
+
+merge(a_data_frame,another_data_frame,by="x")
+merge(a_data_frame,another_data_frame,by="x",all=TRUE)
+
+colSums(a_data_frame[,2:3])
+colMeans(a_data_frame[,2:3])
+
+#练习
+
+n<-(0:9)
+n_sqrt<-sqrt(n)
+sqrt_nnumber<-n_sqrt==floor(sqrt(n))
+b<-n[sqrt_nnumber]
+b
+
+m<-(10:19)
+m_sqrt<-sqrt(m)
+sqrt_mnumber<-m_sqrt==floor(sqrt(m))
+a<-m[sqrt_mnumber]
+a
+
+z<-(20:29)
+z_sqrt<-sqrt(z)
+sqrt_znumber<-z_sqrt==floor(sqrt(z))
+c<-z[sqrt_znumber]
+c
+
+r<-(30:39)
+r_sqrt<-sqrt(r)
+sqrt_rnumber<-r_sqrt==floor(sqrt(r))
+d<-r[sqrt_rnumber]
+d
+
+s<-(40:49)
+s_sqrt<-sqrt(s)
+sqrt_snumber<-s_sqrt==floor(sqrt(s))
+e<-s[sqrt_snumber]
+e
+
+mt<-(50:59)
+mt_sqrt<-sqrt(mt)
+sqrt_mtnumber<-m_sqrt==floor(sqrt(mt))
+f<-mt[sqrt_mtnumber]
+f
+
+mq<-(60:69)
+mq_sqrt<-sqrt(mq)
+sqrt_mqnumber<-mq_sqrt==floor(sqrt(mq))
+g<-mq[sqrt_mqnumber]
+g
+
+ma<-(70:79)
+ma_sqrt<-sqrt(ma)
+sqrt_manumber<-ma_sqrt==floor(sqrt(ma))
+h<-ma[sqrt_manumber]
+h
+
+mg<-(80:89)
+mg_sqrt<-sqrt(mg)
+sqrt_mgnumber<-mg_sqrt==floor(sqrt(mg))
+i<-mg[sqrt_mgnumber]
+i
+
+mk<-(90:99)
+mk_sqrt<-sqrt(mk)
+sqrt_mknumber<-mk_sqrt==floor(sqrt(mk))
+j<-mk[sqrt_mknumber]
+j
+a_list<-list(b,a,c,d,e,f,g,h,i,j)
+a_list
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+iris
+a_data_frame<-data.frame(iris)
+a_data_frame
+
+colMeans(a_data_frame[,2:4])
+beaver1
+beaver2
+b_data_frame<-data.frame(beaver1,"id"=1)
+b_data_frame
+c_data_frame<-data.frame(beaver2,"id"=2)
+c_data_frame
+
+ans<-rbind(b_data_frame,c_data_frame)
+subset(ans,activ>0)
